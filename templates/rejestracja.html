@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rejestracja - Wiedźmiński Asystent</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="container">
+    <h1>Dołącz do cechu</h1>
+    <form action="/rejestracja" method="POST">
+      <label for="nazwa_uzytkownika">Nazwa użytkownika</label>
+      <input type="text" id="nazwa_uzytkownika" name="nazwa_uzytkownika" required>
+      <label for="haslo">Hasło</label>
+      <input type="password" id="haslo" name="haslo" required>
+      <button type="submit">Zarejestruj się</button>
+      <p class="form-hint">Hasło musi mieć minimum 8 znaków.</p>
+    </form>
+    <p class="form-hint">Treść zapytań i przesyłanych plików może być wysyłana do zewnętrznego modelu AI Claude (Anthropic), aby wygenerować odpowiedź.</p>
+    {% if blad %}<div class="answer-box error-box"><p>{{ blad }}</p></div>{% endif %}
+    {% if sukces %}<div class="answer-box"><p>{{ sukces }} <a href="/logowanie">Zaloguj się</a></p></div>{% endif %}
+    <p><a href="/logowanie">Masz konto? Zaloguj się</a></p>
+  </main>
+</body>
+</html>

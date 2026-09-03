@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Streszcz zlecenie</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="container">
+    <nav class="tabs" aria-label="Główna nawigacja">
+      <a class="tab" href="/">Wiedźmiński doradca</a>
+      <a class="tab" href="/analiza-strona">Analiza zleceń</a>
+      <a class="tab active" href="/streszczanie">Streszcz zlecenie</a>
+    </nav>
+    <p class="form-hint">
+      {% if session.get("nazwa_uzytkownika") %}
+        Zalogowany: {{ session.get("nazwa_uzytkownika") }} · <a href="/wyloguj">Wyloguj</a>
+      {% else %}
+        <a href="/logowanie">Zaloguj się</a> · <a href="/rejestracja">Rejestracja</a>
+      {% endif %}
+    </p>
+
+    <h1>Streszcz zlecenie wiedźmińskie</h1>
+
+    <form action="/streszcz" method="POST">
+      <label for="tekst">Opis zlecenia lub tekst do streszczenia</label>
+      <textarea name="tekst" id="tekst" rows="10" minlength="20" maxlength="5000" placeholder="Wklej opis zlecenia lub inny tekst...">{{ tekst or '' }}</textarea>
+      <p class="form-hint">20-5000 znaków.</p>
+      <button type="submit">Streszcz</button>
+    </form>
+
+    {% if blad %}
+      <div class="answer-box error-box" role="alert"><p>{{ blad }}</p></div>
+    {% endif %}
+
+    {% if podsumowanie %}
+      <div class="answer-box" aria-live="polite"><p>{{ podsumowanie }}</p></div>
+    {% endif %}
+  </main>
+</body>
+</html>

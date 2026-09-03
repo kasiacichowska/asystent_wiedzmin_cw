@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logowanie - Wiedźmiński Asystent</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="container">
+    <h1>Logowanie do Wiedźmińskiego Asystenta</h1>
+    <form action="/logowanie" method="POST">
+      <label for="nazwa_uzytkownika">Nazwa użytkownika</label>
+      <input type="text" id="nazwa_uzytkownika" name="nazwa_uzytkownika" required>
+      <label for="haslo">Hasło</label>
+      <input type="password" id="haslo" name="haslo" required>
+      <button type="submit">Zaloguj się</button>
+    </form>
+    {% if blad %}<div class="answer-box error-box"><p>{{ blad }}</p></div>{% endif %}
+    <p><a href="/rejestracja">Nie masz konta? Zarejestruj się</a></p>
+  </main>
+</body>
+</html>

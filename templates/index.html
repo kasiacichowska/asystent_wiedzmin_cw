@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wiedźmiński Asystent AI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="container">
+    <nav class="tabs" aria-label="Główna nawigacja">
+      <a class="tab active" href="/">Wiedźmiński doradca</a>
+      <a class="tab" href="/analiza-strona">Analiza zleceń</a>
+      <a class="tab" href="/streszczanie">Streszcz zlecenie</a>
+    </nav>
+    <p class="form-hint">
+      {% if session.get("nazwa_uzytkownika") %}
+        Zalogowany: {{ session.get("nazwa_uzytkownika") }} · <a href="/wyloguj">Wyloguj</a>
+      {% else %}
+        <a href="/logowanie">Zaloguj się</a> · <a href="/rejestracja">Rejestracja</a>
+      {% endif %}
+    </p>
+
+    <h1>Wiedźmiński Asystent AI</h1>
+    <p class="lead">Zapytaj o potwory, zlecenia i przygotowanie do wyprawy.</p>
+
+    <form action="/zapytaj" method="POST">
+      <label for="pytanie">Twoje pytanie</label>
+      <textarea name="pytanie" id="pytanie" rows="4" maxlength="1000" placeholder="Np. Jak przygotować się do walki z gryfem?">{{ pytanie or '' }}</textarea>
+      <button type="submit">Wyślij</button>
+    </form>
+
+    {% if pytanie %}
+      <p class="sent-question"><em>Twoje pytanie: {{ pytanie }}</em></p>
+    {% endif %}
+
+    <div class="answer-box" aria-live="polite">
+      {% if odpowiedz %}
+        <p>{{ odpowiedz }}</p>
+      {% else %}
+        <p>Tutaj pojawi się odpowiedź wiedźmińskiego doradcy.</p>
+      {% endif %}
+    </div>
+  </main>
+</body>
+</html>

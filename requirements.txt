@@ -1,0 +1,8 @@
+Flask
+anthropic
+python-dotenv
+pandas
+flask-limiter
+flask-bcrypt
+flask-talisman
+gunicorn
