@@ -1,7 +1,7 @@
 Flask
 anthropic
 python-dotenv
-pandas
+pypdf
 flask-limiter
 flask-bcrypt
 flask-talisman
