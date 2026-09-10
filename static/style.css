@@ -87,29 +87,17 @@ body::before {
   border-bottom-color: var(--red);
 }
 
-h1 {
-  position: relative;
-  text-align: center;
-  padding-top: 108px;
-}
-
-h1::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 88px;
-  height: 88px;
-
-  background-image: url("medalion.webp");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
+h1,
 h2 {
   color: var(--parchment);
   letter-spacing: 0.02em;
+}
+
+h1 {
+  margin: 0 0 20px;
+  font-size: 32px;
+  line-height: 1.15;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
 }
 
 h2 {
@@ -303,4 +291,47 @@ hr {
   .tab {
     white-space: nowrap;
   }
+}
+
+
+/* Medalion Szkoły Wilka */
+h1 {
+  position: relative;
+  text-align: center;
+  padding-top: 108px;
+}
+
+h1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 88px;
+  height: 88px;
+  background: url("img/medalion.webp") center/contain no-repeat;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.55));
+}
+
+.container {
+  overflow: hidden;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  right: -28px;
+  top: 18px;
+  width: 130px;
+  height: 130px;
+  background: url("img/medalion.webp") center/contain no-repeat;
+  opacity: 0.10;
+  pointer-events: none;
+  transform: rotate(14deg);
+}
+
+@media (max-width: 760px) {
+  h1 { padding-top: 92px; }
+  h1::before { width: 74px; height: 74px; }
+  .container::before { width: 92px; height: 92px; right: -20px; top: 22px; }
 }
