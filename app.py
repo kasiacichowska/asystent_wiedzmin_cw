@@ -25,7 +25,7 @@ load_dotenv()
 API_KEY = os.environ.get("ANTHROPIC_API_KEY")
 client = Anthropic(api_key=API_KEY) if API_KEY else None
 
-MODEL = "claude-haiku-5"
+MODEL = "claude-haiku-4-5-20251001"
 MAX_TOKENS = 1000
 
 SYSTEM_PROMPT_CZAT = """Jesteś wiedźmińskim asystentem AI.
