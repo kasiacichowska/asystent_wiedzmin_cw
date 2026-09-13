@@ -11,7 +11,7 @@ Aplikacja jest utrzymana w klimacie Wiedźmina. Użytkownik może zadawać pytan
 - Streszczanie wpisanego tekstu
 - Rejestracja i logowanie użytkowników
 - Hasła hashowane przez bcrypt
-- Ograniczenie liczby zapytań (rate limiting)
+- Ograniczenie liczby zapytań
 - Podstawowa ochrona przed prompt injection
 - Ograniczenie wielkości przesyłanego pliku PDF do 5 MB
 
@@ -84,7 +84,6 @@ Po uruchomieniu można utworzyć konto, zalogować się i korzystać z funkcji a
 | `ANTHROPIC_API_KEY` | Klucz API potrzebny do korzystania z Claude | Tak |
 | `SECRET_KEY` | Sekret używany przez Flask do obsługi sesji użytkownika | Tak |
 
-Pliku `.env` nie należy wysyłać na GitHuba, ponieważ zawiera prywatne dane.
 
 ## Struktura projektu
 
